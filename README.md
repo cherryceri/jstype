@@ -5,4 +5,4 @@ The game can be run by opening index.html in a browser
   
 # More features coming soon!
 
-<img src="https://imgur.com/8V8AqEK.jpg">
+<img src="https://imgur.com/gnLlR8t.jpg">
