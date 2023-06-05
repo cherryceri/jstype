@@ -1,13 +1,15 @@
 :root {
   --text: #393D47;
-  --fade: #787976;
+  --fade: #626E6E;
   --blush: #f1abb9;
-  --danger: #800500;
+  --back: #838A80;
+  --done: #A7B0A4;
 }
 
 body {
-  margin-top: 10vh;
   overflow: hidden;
+  background-color: var(--back);
+  margin: 5vh auto;
 }
 
 .container {
@@ -20,34 +22,54 @@ body {
 }
 
 .text {
-  font-size: 5vw;
+  font-size: clamp(9vh, 6vw, 6vw);
   font-family: 'Geologica', sans-serif;
   letter-spacing: 6px;
   color: var(--fade);
   text-align: center;
   align-self: flex-end;
-  z-index: -1;
+  z-index: -2;
   position: relative;
   min-width: 50%;
   max-width: 50%;
-  margin: 0px 1vw;
+  min-height: 22vh;
+  padding: 0px 2.5vw;
+  margin: 0px 0vw;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-#activetext {
-  font-size: 6.5vw;
+#current {
+  font-size: clamp(11vh, 7.5vw, 7.5vw);
   color: var(--text);
   align-self: flex-start;
+  padding: 0px;
+  width: 75%;
+  min-width: 750px;
+  overflow: visible;
+  z-index: -1;
+}
+
+#prev {
+  color: var(--done);
+  text-align: right;
+  overflow: visible;
+}
+
+#next {
+  text-align: left;
 }
 
 #score {
-  margin-bottom: 5vw;
-  font-size: 8vw;
+  margin-bottom: 3vh;
+  font-size: 7vw;
   font-family: 'Aoboshi One', serif;
   color: var(--blush);
 }
 
 #input {
-  font-size: 6.5vw;
+  font-size: clamp(11vh, 7.5vw, 7.5vw);
   color: var(--blush);
   border: 0px;
   resize: none;
@@ -57,4 +79,9 @@ body {
   word-wrap: break-word;
   max-width: 90%;
   overflow: hidden;
+  caret-color: transparent;
+}
+
+#input:focus::placeholder {
+  color: transparent;
 }
