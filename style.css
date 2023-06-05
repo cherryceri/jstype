@@ -1,10 +1,9 @@
 :root {
   --text: #393D47;
-  --fade: #626E6E;
+  --fade: #5E635C;
   --blush: #f1abb9;
   --back: #838A80;
   --done: #A7B0A4;
-  --cherry: #573F54;
 }
 
 body {
@@ -88,7 +87,7 @@ body {
 }
 
 #cherry {
-  color: var(--cherry);
+  color: var(--blush);
 }
 
 #footer {
