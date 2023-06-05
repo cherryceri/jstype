@@ -4,6 +4,7 @@
   --blush: #f1abb9;
   --back: #838A80;
   --done: #A7B0A4;
+  --cherry: #7D4047;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
 }
 
 .text {
-  font-size: clamp(9vh, 6vw, 6vw);
+  font-size: clamp(75px, 4.5vw, 5vw);
   font-family: 'Geologica', sans-serif;
   letter-spacing: 6px;
   color: var(--fade);
@@ -41,11 +42,11 @@ body {
 }
 
 #current {
-  font-size: clamp(11vh, 7.5vw, 7.5vw);
+  font-size: clamp(100px, 6vw, 6.5vw);
   color: var(--text);
   align-self: flex-start;
   padding: 0px;
-  width: 75%;
+  width: 80%;
   min-width: 750px;
   overflow: visible;
   z-index: -1;
@@ -62,14 +63,14 @@ body {
 }
 
 #score {
+  font-size: clamp(80px, 6vw, 6.5vw);
   margin-bottom: 3vh;
-  font-size: 7vw;
   font-family: 'Aoboshi One', serif;
   color: var(--blush);
 }
 
 #input {
-  font-size: clamp(11vh, 7.5vw, 7.5vw);
+  font-size: clamp(100px, 6vw, 6.5vw);
   color: var(--blush);
   border: 0px;
   resize: none;
@@ -84,4 +85,21 @@ body {
 
 #input:focus::placeholder {
   color: transparent;
+}
+
+#cherry {
+  color: var(--cherry);
+}
+
+#footer {
+  font-size: 30px;
+  letter-spacing: 3px;
+  min-height: 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1vh;
 }
