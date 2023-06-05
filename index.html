@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Typing Test</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&family=Geologica:wght@300&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="text" id="score">
+      20
+    </div>
+  </div>
+  <div class="container">
+    <div class="text">
+      <a href="javascript: void(0)"></a>
+    </div>
+    <div class="text" id="activetext">
+      Loremipsum
+    </div>
+    <div class="text" id="next">
+      Loremipsum
+    </div>
+  </div>
+  <div class="container">
+    <textarea class="text" id="input" oninput="processInput()" onfocus="start()" autocorrect="off" rows="1">
+    </textarea>
+  </div>
+
+  <script src="main.js">
+  </script>
+</body>

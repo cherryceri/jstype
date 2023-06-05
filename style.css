@@ -1,0 +1,60 @@
+:root {
+  --text: #393D47;
+  --fade: #787976;
+  --blush: #f1abb9;
+  --danger: #800500;
+}
+
+body {
+  margin-top: 10vh;
+  overflow: hidden;
+}
+
+.container {
+  box-sizing: content-box;
+  margin: 0vh auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+}
+
+.text {
+  font-size: 5vw;
+  font-family: 'Geologica', sans-serif;
+  letter-spacing: 6px;
+  color: var(--fade);
+  text-align: center;
+  align-self: flex-end;
+  z-index: -1;
+  position: relative;
+  min-width: 50%;
+  max-width: 50%;
+  margin: 0px 1vw;
+}
+
+#activetext {
+  font-size: 6.5vw;
+  color: var(--text);
+  align-self: flex-start;
+}
+
+#score {
+  margin-bottom: 5vw;
+  font-size: 8vw;
+  font-family: 'Aoboshi One', serif;
+  color: var(--blush);
+}
+
+#input {
+  font-size: 6.5vw;
+  color: var(--blush);
+  border: 0px;
+  resize: none;
+  z-index: 1;
+  background: transparent;
+  outline: none;
+  word-wrap: break-word;
+  max-width: 90%;
+  overflow: hidden;
+}
