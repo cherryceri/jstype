@@ -32,7 +32,8 @@ function processInput() {
   let next = document.getElementById("next").innerHTML;
   let points = document.getElementById("score").innerHTML;
   var sentence = [current, next];
-  if (document.getElementById("input").value == sentence[0]) {
+  var input = (document.getElementById("input").value).toLowerCase()
+  if (input == sentence[0]) {
     document.getElementById("input").value = "";
     document.getElementById("prev").innerHTML = sentence[0];
     sentence.shift();
