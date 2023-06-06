@@ -1,13 +1,17 @@
-function getWord() {
+function getWord(sentence) {
   word = wordList[Math.floor(Math.random() * wordList.length)];
+
+  if (word == sentence[1] || word.length > 10) {
+    getWord(sentence)
+  }
   return word;
 }
 
 function generateSentence() {
-  var sentence = [];
+  sentence = [];
   const wordCount = 2;
   for (let i = 0; i < wordCount; i++) {
-    sentence.push(getWord());
+    sentence.push(getWord(sentence));
   };
   return sentence;
 }
@@ -20,37 +24,44 @@ function write(points, sentence) {
 
 function start() {
   sentence = generateSentence();
-  var points = 0;
+  points = 0;
+  animate(document.getElementById("current"), "fade")
+  animate(document.getElementById("next"), "fade")
   document.getElementById("current").innerHTML = sentence[0];
   document.getElementById("next").innerHTML = sentence[1];
   document.getElementById("score").innerHTML = points;
   document.getElementById("input").onclick = "";
 }
 
+// I dont like how messy this is but it works ¯\_(ツ)_/¯
 function processInput() {
   let current = document.getElementById("current").innerHTML;
   let next = document.getElementById("next").innerHTML;
   let points = document.getElementById("score").innerHTML;
-  var sentence = [current, next];
-  var input = (document.getElementById("input").value).toLowerCase()
+  sentence = [current, next];
+  input = (document.getElementById("input").value).toLowerCase()
   if (input == sentence[0]) {
     points++;
-    document.getElementById("prev").innerHTML = sentence[0];
+    prev = sentence[0];
     sentence.shift();
-    sentence.push(getWord());
-    write(points, sentence);
-    animate();
+    sentence.push(getWord(sentence));
+    animate(document.getElementById("score"), "fx");
+    animate(document.getElementById("input"), "fx", function () {
+      document.getElementById("input").value = "";
+    });
+    animate(document.getElementById("next"), "fx");
+    animate(document.getElementById("prev"), "fx");
+    animate(document.getElementById("current"), "fx", function () {
+      document.getElementById("prev").innerHTML = prev;
+      write(points, sentence);
+    });
   }
 }
 
-function animate() {
-  document.getElementById("input").classList.add("fade");
-  document.getElementById("score").classList.add("fade");
-  document.getElementById("input").addEventListener('animationend', () => {
-    document.getElementById("input").classList.remove("fade");
-    document.getElementById("input").value = "";
-  });
-  document.getElementById("score").addEventListener('animationend', () => {
-    document.getElementById("score").classList.remove("fade");
+function animate(element, name, callback) {
+  element.classList.add(name);
+  element.addEventListener('animationend', () => {
+    element.classList.remove(name);
+    callback();
   });
 }
