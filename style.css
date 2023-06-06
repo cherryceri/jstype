@@ -88,7 +88,7 @@ body {
   color: var(--blush);
 }
 
-#score.fade {
+#score.fx {
   animation-name: pinkfade;
   animation-duration: 500ms;
   animation-iteration-count: 1;
@@ -108,7 +108,7 @@ body {
   caret-color: transparent;
 }
 
-#input.fade {
+#input.fx {
   animation-name: fade, pinkfade;
   animation-duration: 250ms;
   animation-iteration-count: 1;

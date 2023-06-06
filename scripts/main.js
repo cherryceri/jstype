@@ -4,7 +4,7 @@ function getWord() {
 }
 
 function generateSentence() {
-  var sentence = [];
+  sentence = [];
   const wordCount = 2;
   for (let i = 0; i < wordCount; i++) {
     sentence.push(getWord());
@@ -20,7 +20,7 @@ function write(points, sentence) {
 
 function start() {
   sentence = generateSentence();
-  var points = 0;
+  points = 0;
   document.getElementById("current").innerHTML = sentence[0];
   document.getElementById("next").innerHTML = sentence[1];
   document.getElementById("score").innerHTML = points;
@@ -31,26 +31,25 @@ function processInput() {
   let current = document.getElementById("current").innerHTML;
   let next = document.getElementById("next").innerHTML;
   let points = document.getElementById("score").innerHTML;
-  var sentence = [current, next];
-  var input = (document.getElementById("input").value).toLowerCase()
+  sentence = [current, next];
+  input = (document.getElementById("input").value).toLowerCase()
   if (input == sentence[0]) {
     points++;
     document.getElementById("prev").innerHTML = sentence[0];
     sentence.shift();
     sentence.push(getWord());
-    write(points, sentence);
-    animate();
+    animate(document.getElementById("score"));
+    animate(document.getElementById("input"), function () {
+      document.getElementById("input").value = "";
+      write(points, sentence);
+    });
   }
 }
 
-function animate() {
-  document.getElementById("input").classList.add("fade");
-  document.getElementById("score").classList.add("fade");
-  document.getElementById("input").addEventListener('animationend', () => {
-    document.getElementById("input").classList.remove("fade");
-    document.getElementById("input").value = "";
-  });
-  document.getElementById("score").addEventListener('animationend', () => {
-    document.getElementById("score").classList.remove("fade");
+async function animate(element, callback) {
+  element.classList.add("fx");
+  element.addEventListener('animationend', () => {
+    element.classList.remove("fx");
+    callback();
   });
 }
