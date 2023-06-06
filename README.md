@@ -4,3 +4,9 @@
 - The game is ran by opening index.html in a browser  
 # More features coming soon!  
 <img src="https://imgur.com/iLGGdDZ.jpg">
+
+# To Do
+- More animations
+- WPM indicator
+- Sounds
+- Colourblindness mode?
