@@ -27,18 +27,20 @@ function update() {
   input = (document.getElementById("input").value).toLowerCase()
 
   if (input == sentence[0]) {
+    document.getElementById("input").setAttribute("readonly", "");
     points++;
     prev = sentence[0];
     sentence.shift();
     sentence.push(getWord(sentence));
-    playAnim(document.getElementById("score"), "fx");
-    playAnim(document.getElementById("input"), "fx", function () {
-      document.getElementById("input").value = "";
-    });
     playAnim(document.getElementById("next"), "fx");
     playAnim(document.getElementById("prev"), "fx");
     playAnim(document.getElementById("current"), "fx", function () {
       write(points, sentence, prev);
+    });
+    playAnim(document.getElementById("score"), "fx");
+    playAnim(document.getElementById("input"), "fx", function () {
+      document.getElementById("input").value = "";
+      document.getElementById("input").removeAttribute("readonly");
     });
   }
 }
