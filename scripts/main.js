@@ -25,6 +25,8 @@ function write(points, sentence) {
 function start() {
   sentence = generateSentence();
   points = 0;
+  animate(document.getElementById("current"), "fade")
+  animate(document.getElementById("next"), "fade")
   document.getElementById("current").innerHTML = sentence[0];
   document.getElementById("next").innerHTML = sentence[1];
   document.getElementById("score").innerHTML = points;
@@ -43,23 +45,23 @@ function processInput() {
     prev = sentence[0];
     sentence.shift();
     sentence.push(getWord(sentence));
-    animate(document.getElementById("score"));
-    animate(document.getElementById("input"), function () {
+    animate(document.getElementById("score"), "fx");
+    animate(document.getElementById("input"), "fx", function () {
       document.getElementById("input").value = "";
     });
-    animate(document.getElementById("next"));
-    animate(document.getElementById("prev"));
-    animate(document.getElementById("current"), function () {
+    animate(document.getElementById("next"), "fx");
+    animate(document.getElementById("prev"), "fx");
+    animate(document.getElementById("current"), "fx", function () {
       document.getElementById("prev").innerHTML = prev;
       write(points, sentence);
     });
   }
 }
 
-function animate(element, callback) {
-  element.classList.add("fx");
+function animate(element, name, callback) {
+  element.classList.add(name);
   element.addEventListener('animationend', () => {
-    element.classList.remove("fx");
+    element.classList.remove(name);
     callback();
   });
 }
