@@ -1,3 +1,5 @@
+// I hate the fact that this data is stored in a JS file
+// However it's the only one without issues
 const wordList = [
   "ability",
   "able",
