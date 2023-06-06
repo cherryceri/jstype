@@ -27,6 +27,7 @@ function start() {
   document.getElementById("input").onclick = "";
 }
 
+// I dont like how messy this is but it works ¯\_(ツ)_/¯
 function processInput() {
   let current = document.getElementById("current").innerHTML;
   let next = document.getElementById("next").innerHTML;
@@ -35,18 +36,23 @@ function processInput() {
   input = (document.getElementById("input").value).toLowerCase()
   if (input == sentence[0]) {
     points++;
-    document.getElementById("prev").innerHTML = sentence[0];
+    prev = sentence[0];
     sentence.shift();
     sentence.push(getWord());
     animate(document.getElementById("score"));
     animate(document.getElementById("input"), function () {
       document.getElementById("input").value = "";
+    });
+    animate(document.getElementById("next"));
+    animate(document.getElementById("prev"));
+    animate(document.getElementById("current"), function () {
+      document.getElementById("prev").innerHTML = prev;
       write(points, sentence);
     });
   }
 }
 
-async function animate(element, callback) {
+function animate(element, callback) {
   element.classList.add("fx");
   element.addEventListener('animationend', () => {
     element.classList.remove("fx");

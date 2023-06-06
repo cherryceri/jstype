@@ -51,33 +51,74 @@ body {
   z-index: -1;
 }
 
+#current.fx {
+  animation-name: fade, moveleft;
+  animation-duration: 100ms;
+  animation-iteration-count: 1;
+}
+
 #prev {
   color: var(--done);
   text-align: right;
   overflow: visible;
 }
 
+#prev.fx {
+  animation-name: fadeoutin;
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+}
+
 #next {
   text-align: left;
 }
 
-@keyframes pinkfade {
-  from {
-    color: var(--princess);
-  }
+#next.fx {
+  animation-name: fadeleft;
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+}
 
+@keyframes pinkfade {
   to {
     color: var(--blush);
   }
 }
 
 @keyframes fade {
-  from {
-    opacity: 100;
-  }
-
   to {
     opacity: 0;
+  }
+}
+
+@keyframes fadeoutin {
+  25% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100;
+  }
+}
+
+@keyframes moveleft {
+  to {
+    transform: translateX(-10vw);
+  }
+}
+
+@keyframes fadeleft {
+  25% {
+    transform: translateX(-10vw);
+    opacity: 0;
+  }
+
+  26% {
+    transform: translateX(0vw);
+  }
+
+  100% {
+    opacity: 100;
   }
 }
 
@@ -90,7 +131,7 @@ body {
 
 #score.fx {
   animation-name: pinkfade;
-  animation-duration: 500ms;
+  animation-duration: 1s;
   animation-iteration-count: 1;
 }
 
@@ -110,7 +151,7 @@ body {
 
 #input.fx {
   animation-name: fade, pinkfade;
-  animation-duration: 250ms;
+  animation-duration: 300ms;
   animation-iteration-count: 1;
 }
 
