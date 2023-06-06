@@ -1,7 +1,8 @@
 :root {
-  --text: #393D47;
+  --main: #292C33;
   --fade: #5E635C;
   --blush: #f1abb9;
+  --princess: #FFDBE2;
   --back: #838A80;
   --done: #A7B0A4;
 }
@@ -33,7 +34,7 @@ body {
   min-width: 50%;
   max-width: 50%;
   min-height: 22vh;
-  padding: 0px 2.5vw;
+  padding: 0px 1vw;
   margin: 0px 0vw;
   display: inline-block;
   white-space: nowrap;
@@ -42,7 +43,7 @@ body {
 
 #current {
   font-size: clamp(100px, 6vw, 6.5vw);
-  color: var(--text);
+  color: var(--main);
   align-self: flex-start;
   padding: 0px;
   width: 80%;
@@ -61,11 +62,37 @@ body {
   text-align: left;
 }
 
+@keyframes pinkfade {
+  from {
+    color: var(--princess);
+  }
+
+  to {
+    color: var(--blush);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 100;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
 #score {
   font-size: clamp(80px, 6vw, 6.5vw);
   margin-bottom: 3vh;
   font-family: 'Aoboshi One', serif;
   color: var(--blush);
+}
+
+#score.fade {
+  animation-name: pinkfade;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
 }
 
 #input {
@@ -82,6 +109,12 @@ body {
   caret-color: transparent;
 }
 
+#input.fade {
+  animation-name: fade, pinkfade;
+  animation-duration: 250ms;
+  animation-iteration-count: 1;
+}
+
 #input:focus::placeholder {
   color: transparent;
 }
@@ -92,6 +125,7 @@ body {
 
 #footer {
   font-size: 30px;
+  font-family: 'Quicksand', sans-serif;
   letter-spacing: 3px;
   min-height: 0;
 }

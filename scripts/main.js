@@ -34,11 +34,23 @@ function processInput() {
   var sentence = [current, next];
   var input = (document.getElementById("input").value).toLowerCase()
   if (input == sentence[0]) {
-    document.getElementById("input").value = "";
+    points++;
     document.getElementById("prev").innerHTML = sentence[0];
     sentence.shift();
-    points++;
     sentence.push(getWord());
     write(points, sentence);
+    animate();
   }
+}
+
+function animate() {
+  document.getElementById("input").classList.add("fade");
+  document.getElementById("score").classList.add("fade");
+  document.getElementById("input").addEventListener('animationend', () => {
+    document.getElementById("input").classList.remove("fade");
+    document.getElementById("input").value = "";
+  });
+  document.getElementById("score").addEventListener('animationend', () => {
+    document.getElementById("score").classList.remove("fade");
+  });
 }
