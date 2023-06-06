@@ -64,7 +64,7 @@ body {
 }
 
 #prev.fx {
-  animation-name: fadeoutin;
+  animation-name: fadeleft;
   animation-duration: 400ms;
   animation-iteration-count: 1;
 }
@@ -88,16 +88,6 @@ body {
 @keyframes fade {
   to {
     opacity: 0;
-  }
-}
-
-@keyframes fadeoutin {
-  25% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 100;
   }
 }
 
