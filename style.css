@@ -23,7 +23,7 @@ body {
 }
 
 .text {
-  font-size: clamp(75px, 4.5vw, 5vw);
+  font-size: clamp(50px, 4.5vw, 5vw);
   font-family: 'Geologica', sans-serif;
   letter-spacing: 6px;
   color: var(--fade);
@@ -31,23 +31,22 @@ body {
   align-self: flex-end;
   z-index: -2;
   position: relative;
-  min-width: 50%;
-  max-width: 50%;
+  max-width: 50vw;
+  min-width: calc(15vw + 400px);
   min-height: 22vh;
-  padding: 0px 1vw;
-  margin: 0px 0vw;
+  padding: 0px 5vw;
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
 }
 
 #current {
-  font-size: clamp(100px, 6vw, 6.5vw);
+  font-size: clamp(65px, 6vw, 6.5vw);
   color: var(--main);
   align-self: flex-start;
   padding: 0px;
-  width: 80%;
-  min-width: 750px;
+  max-width: 1920px;
+  width: 400px;
   overflow: visible;
   z-index: -1;
 }
@@ -83,7 +82,7 @@ body {
 }
 
 #score {
-  font-size: clamp(80px, 6vw, 6.5vw);
+  font-size: clamp(65px, 6vw, 6.5vw);
   margin-bottom: 3vh;
   font-family: 'Aoboshi One', serif;
   color: var(--blush);
@@ -96,7 +95,7 @@ body {
 }
 
 #input {
-  font-size: clamp(100px, 6vw, 6.5vw);
+  font-size: clamp(65px, 6vw, 6.5vw);
   color: var(--blush);
   border: 0px;
   resize: none;
