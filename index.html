@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <title>Typing Test</title>
+  <title>JStype</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,11 +15,13 @@
 </head>
 
 <body>
+  <!--SCORE CONTAINER-->
   <div class="container">
     <div class="text" id="score">
       0
     </div>
   </div>
+  <!--WORD ROW-->
   <div class="container">
     <div class="text" id="prev">
       <a href="javascript:void(0)"></a>
@@ -31,9 +33,10 @@
       <a href="javascript:void(0)"></a>
     </div>
   </div>
+  <!--INPUT CONTAINER-->
   <div class="container">
-    <textarea class="text" id="input" placeholder="click here" oninput="processInput()" onclick="start()"
-      autocorrect="off" rows="1"></textarea>
+    <textarea class="text" id="input" placeholder="click here" oninput="update()" onclick="start()" autocorrect="off"
+      rows="1"></textarea>
   </div>
 
   <footer class="container">
