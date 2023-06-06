@@ -1,8 +1,8 @@
 # JStype
 
-A simple typing game with a score counter for how many words you complete  
+A simple and relaxing typing game with a score counter for how many words you complete  
 The game can be run by opening index.html in a browser  
   
 # More features coming soon!
 
-<img src="https://imgur.com/gnLlR8t.jpg">
+<img src="https://imgur.com/7PJ7LAl.jpg">
