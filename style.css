@@ -80,6 +80,10 @@ body {
 }
 
 @keyframes pinkfade {
+  from {
+    color: var(--princess);
+  }
+
   to {
     color: var(--blush);
   }

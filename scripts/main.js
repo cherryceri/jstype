@@ -1,5 +1,9 @@
-function getWord() {
+function getWord(sentence) {
   word = wordList[Math.floor(Math.random() * wordList.length)];
+
+  if (word == sentence[1] || word.length > 10) {
+    getWord(sentence)
+  }
   return word;
 }
 
@@ -7,7 +11,7 @@ function generateSentence() {
   sentence = [];
   const wordCount = 2;
   for (let i = 0; i < wordCount; i++) {
-    sentence.push(getWord());
+    sentence.push(getWord(sentence));
   };
   return sentence;
 }
@@ -38,7 +42,7 @@ function processInput() {
     points++;
     prev = sentence[0];
     sentence.shift();
-    sentence.push(getWord());
+    sentence.push(getWord(sentence));
     animate(document.getElementById("score"));
     animate(document.getElementById("input"), function () {
       document.getElementById("input").value = "";
